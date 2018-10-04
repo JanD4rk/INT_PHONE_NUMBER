@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">IntlPhoneInput</string>
+    <string name="item_image_contentDescription">Country flag</string>
+    <string name="item_preview_country">Azərbaycan</string>
+    <string name="item_preview_dialCode">+994</string>
+</resources>

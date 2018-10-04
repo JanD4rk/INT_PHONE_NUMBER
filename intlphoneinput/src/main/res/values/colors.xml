@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dialog_edittext_text">#FFF</color>
+    <color name="dialog_edittext_hint">#FFF</color>
+    <color name="dialog_edittext_bg">#FFF</color>
+    <color name="dialog_divider">#1c2426</color>
+</resources>

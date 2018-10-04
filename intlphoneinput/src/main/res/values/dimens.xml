@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_default">24sp</dimen>
+    <dimen name="flag_default_padding_right">1dp</dimen>
+    <dimen name="flag_default_padding">0dp</dimen>
+    <dimen name="dialog_row_default_divider">0dp</dimen>
+    <dimen name="dialog_default_divider">2dp</dimen>
+</resources>
