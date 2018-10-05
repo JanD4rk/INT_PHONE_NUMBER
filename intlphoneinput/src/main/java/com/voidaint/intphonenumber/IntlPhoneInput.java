@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatEditText;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -108,63 +110,63 @@ public class IntlPhoneInput extends RelativeLayout implements Callbacks {
         TypedArray ta = getContext().obtainStyledAttributes(attributeSet, R.styleable.IntlPhoneInput);
         if (ta != null) {
             Drawable drawable;
-            drawable = ta.getDrawable(R.styleable.IntlPhoneInput_closeIcon);
+            drawable = ta.getDrawable(R.styleable.IntlPhoneInput_int_closeIcon);
             if (drawable != null)
                 countryDialog.setCloseIcon(drawable);
 
-            drawable = ta.getDrawable(R.styleable.IntlPhoneInput_searchIcon);
+            drawable = ta.getDrawable(R.styleable.IntlPhoneInput_int_searchIcon);
 
             if (drawable != null)
                 countryDialog.setSearchIcon(drawable);
 
             int resId;
 
-            resId = ta.getColor(R.styleable.IntlPhoneInput_dialogTextcolor, -1);
+            resId = ta.getColor(R.styleable.IntlPhoneInput_int_dialogTextcolor, -1);
             if (resId != -1)
                 countryDialog.setDialogTextColor(resId);
 
-            resId = ta.getColor(R.styleable.IntlPhoneInput_dialogHintTextcolor, -1);
+            resId = ta.getColor(R.styleable.IntlPhoneInput_int_dialogHintTextcolor, -1);
             if (resId != -1)
                 countryDialog.setDialogHintColor(resId);
 
 
             TypedValue textValue = new TypedValue();
-            ta.getValue(R.styleable.IntlPhoneInput_dialogBackground, textValue);
+            ta.getValue(R.styleable.IntlPhoneInput_int_dialogBackground, textValue);
 
             if (textValue.type == TypedValue.TYPE_STRING)
                 countryDialog.setDialogBackgroundDrawable(textValue.resourceId);
             else if (textValue.type != TypedValue.TYPE_NULL)
                 countryDialog.setDialogBackgroundColor(textValue.data);
 
-            countryDialog.setRowDividerColor(ta.getColor(R.styleable.IntlPhoneInput_dialogRowDividerColor, 0));
+            countryDialog.setRowDividerColor(ta.getColor(R.styleable.IntlPhoneInput_int_dialogRowDividerColor, 0));
 
 
             countryDialog.setRowDividerSize(
-                    ta.getDimensionPixelSize(R.styleable.IntlPhoneInput_dialogRowDividerSize,
+                    ta.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_dialogRowDividerSize,
                             getContext().getResources().getDimensionPixelSize(R.dimen.dialog_row_default_divider)));
 
-            resId = ta.getColor(R.styleable.IntlPhoneInput_dialogDividerColor, 0);
+            resId = ta.getColor(R.styleable.IntlPhoneInput_int_dialogDividerColor, 0);
             if (resId != 0)
                 countryDialog.setDividerColor(resId);
 
-            resId = ta.getDimensionPixelSize(R.styleable.IntlPhoneInput_dialogDividerSize,
+            resId = ta.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_dialogDividerSize,
                     getContext().getResources().getDimensionPixelSize(R.dimen.dialog_default_divider));
 
             countryDialog.setDividerSize(resId);
 
 
-            countryDialog.setRowTextSize(ta.getDimensionPixelSize(R.styleable.IntlPhoneInput_dialogRowTextSize, 0));
+            countryDialog.setRowTextSize(ta.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_dialogRowTextSize, 0));
 
-            resId = ta.getDimensionPixelSize(R.styleable.IntlPhoneInput_dialogTextSize, 0);
+            resId = ta.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_dialogTextSize, 0);
             if (resId != 0)
                 countryDialog.setTextSize(resId);
 
-            resId = ta.getDimensionPixelSize(R.styleable.IntlPhoneInput_dialogHeight, 0);
+            resId = ta.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_dialogHeight, 0);
             if (resId != 0)
                 countryDialog.setDialogHeight(resId);
 
 
-            ta.getValue(R.styleable.IntlPhoneInput_dialogHintText, textValue);
+            ta.getValue(R.styleable.IntlPhoneInput_int_dialogHintText, textValue);
             if (textValue.type == TypedValue.TYPE_STRING)
                 countryDialog.setHintText(textValue.string);
             else if (textValue.type != TypedValue.TYPE_NULL)
@@ -196,10 +198,10 @@ public class IntlPhoneInput extends RelativeLayout implements Callbacks {
         if (a == null)
             return;
 
-        int paddingEnd = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_flagPaddingEnd, getResources().getDimensionPixelSize(R.dimen.flag_default_padding_right));
-        int paddingStart = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_flagPaddingStart, getResources().getDimensionPixelSize(R.dimen.flag_default_padding));
-        int paddingTop = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_flagPaddingTop, getResources().getDimensionPixelSize(R.dimen.flag_default_padding));
-        int paddingBottom = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_flagPaddingBottom, getResources().getDimensionPixelSize(R.dimen.flag_default_padding));
+        int paddingEnd = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_flagPaddingEnd, getResources().getDimensionPixelSize(R.dimen.flag_default_padding_right));
+        int paddingStart = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_flagPaddingStart, getResources().getDimensionPixelSize(R.dimen.flag_default_padding));
+        int paddingTop = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_flagPaddingTop, getResources().getDimensionPixelSize(R.dimen.flag_default_padding));
+        int paddingBottom = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_flagPaddingBottom, getResources().getDimensionPixelSize(R.dimen.flag_default_padding));
 
 
         mCountryImageView.setPadding(paddingStart, paddingTop, paddingEnd, paddingBottom);
@@ -216,36 +218,39 @@ public class IntlPhoneInput extends RelativeLayout implements Callbacks {
         if (a == null)
             return;
 
-        int textSize = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_textSize, getResources().getDimensionPixelSize(R.dimen.text_size_default));
+        int textSize = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_textSize, getResources().getDimensionPixelSize(R.dimen.text_size_default));
         mPhoneEdit.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
-        int color = a.getColor(R.styleable.IntlPhoneInput_textColor, -1);
-        if (color != -1)
-            mPhoneEdit.setTextColor(color);
+        int textColor = a.getColor(R.styleable.IntlPhoneInput_int_textColor, mPhoneEdit.getCurrentTextColor());
+        mPhoneEdit.setTextColor(textColor);
+        Log.e(TAG, "setEditTextDefaults: tColor" + textColor);
+
+        int hintColor = a.getColor(R.styleable.IntlPhoneInput_int_textColorHint, mPhoneEdit.getCurrentHintTextColor());
+
+        mPhoneEdit.setHintTextColor(hintColor);
 
 
-        int hintColor = a.getColor(R.styleable.IntlPhoneInput_textColorHint, -1);
-        if (hintColor != -1)
-            mPhoneEdit.setHintTextColor(color);
-
-        int bgColor = a.getColor(R.styleable.IntlPhoneInput_editTextBg, -1);
-        if (bgColor != -1)
+        int bgColor = a.getColor(R.styleable.IntlPhoneInput_int_editTextBg, Integer.MAX_VALUE);
+        if (bgColor != Integer.MAX_VALUE)
             mPhoneEdit.setBackgroundColor(bgColor);
 
-        boolean cursorVisible = a.getBoolean(R.styleable.IntlPhoneInput_editTextCursorVisible, true);
+        Log.e(TAG, "setEditTextDefaults: bgColor" + bgColor);
+
+
+        boolean cursorVisible = a.getBoolean(R.styleable.IntlPhoneInput_int_editTextCursorVisible, true);
         mPhoneEdit.setCursorVisible(cursorVisible);
 
 
         TypedValue textValue = new TypedValue();
 
 
-        a.getValue(R.styleable.IntlPhoneInput_defaultHint, textValue);
+        a.getValue(R.styleable.IntlPhoneInput_int_defaultHint, textValue);
         if (textValue.type == TypedValue.TYPE_STRING)
             defaultHint = textValue.string.toString();
         else if (textValue.type != TypedValue.TYPE_NULL)
             defaultHint = getContext().getString(textValue.resourceId);
 
 
-        a.getValue(R.styleable.IntlPhoneInput_defaultIso, textValue);
+        a.getValue(R.styleable.IntlPhoneInput_int_defaultIso, textValue);
         if (textValue.type == TypedValue.TYPE_STRING)
             setEmptyDefault(textValue.string.toString());
         else if (textValue.type != TypedValue.TYPE_NULL)
@@ -520,7 +525,7 @@ public class IntlPhoneInput extends RelativeLayout implements Callbacks {
                 }
                 Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.parse(s.toString(), iso);
                 iso = mPhoneUtil.getRegionCodeForNumber(phoneNumber);
-                if (iso != null){
+                if (iso != null) {
                     mCountryImageView.setImageResource(Utils.getFlagResource(mCountries.get(mCountries.indexOfIso(iso)), getContext()));
                     mSelectedCountry = mCountries.get(mCountries.indexOfIso(iso));
                 }
