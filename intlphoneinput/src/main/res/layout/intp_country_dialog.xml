@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+  <android.support.constraint.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      >
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/intp_dl_main_layout"
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        android:background="@drawable/intp_dialog_backroung_draw"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/intp_dl_guideline32"
+        app:layout_constraintStart_toStartOf="@+id/intp_dl_guideline33"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+      <TextView
+          android:id="@+id/intp_row_country_divider"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:layout_marginEnd="8dp"
+          android:layout_marginLeft="8dp"
+          android:layout_marginRight="8dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="6dp"
+          android:background="#FFF"
+          android:orientation="horizontal"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/intp_dl_searchView2"
+          tools:layout_editor_absoluteY="62dp"
+          />
+
+
+      <android.support.v7.widget.SearchView
+          android:id="@+id/intp_dl_searchView2"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="8dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="8dp"
+          app:closeIcon="@drawable/intp_ic_cancel_icon"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:queryHint="Type here"
+          app:searchHintIcon="@null"
+          app:searchIcon="@drawable/intp_ic_search_icon"
+          />
+
+
+      <android.support.v7.widget.RecyclerView
+          android:id="@+id/intp_dl_country_holder"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:layout_marginBottom="8dp"
+          android:layout_marginEnd="8dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="8dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/intp_row_country_divider"
+          />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/intp_dl_guideline32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95"
+        />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/intp_dl_guideline33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05"
+        />
+
+  </android.support.constraint.ConstraintLayout>
+</RelativeLayout>

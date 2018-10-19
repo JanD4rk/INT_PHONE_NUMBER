@@ -14,7 +14,6 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import net.rimoto.intlphoneinput.R;
 
 import java.util.List;
 
@@ -32,18 +31,18 @@ public class CountryDialog extends Dialog implements SearchView.OnQueryTextListe
         adapter = new CountryCodesAdapter();
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.country_dialog);
+        setContentView(R.layout.intp_country_dialog);
 
-        constraintLayout = findViewById(R.id.main_layout);
-        SearchView searchView = findViewById(R.id.searchView2);
+        constraintLayout = findViewById(R.id.intp_dl_main_layout);
+        SearchView searchView = findViewById(R.id.intp_dl_searchView2);
         mSearchButton = searchView.findViewById(android.support.v7.appcompat.R.id.search_button);
         mCloseButton = searchView.findViewById(android.support.v7.appcompat.R.id.search_close_btn);
         editText = searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
-        divider = findViewById(R.id.divider);
-        recyclerView = findViewById(R.id.country_holder);
+        divider = findViewById(R.id.intp_row_country_divider);
+        recyclerView = findViewById(R.id.intp_dl_country_holder);
 
-        editText.setTextColor(Utils.getColor(context,R.color.dialog_edittext_text));
-        editText.setHintTextColor(Utils.getColor(context,R.color.dialog_edittext_text));
+        editText.setTextColor(Utils.getColor(context,R.color.intp_dialog_edittext_text));
+        editText.setHintTextColor(Utils.getColor(context,R.color.intp_dialog_edittext_text));
 
 
 

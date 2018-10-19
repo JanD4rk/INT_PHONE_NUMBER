@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.rimoto.intlphoneinput">
+    package="com.voidaint.intphonenumber">
 
     <application
-        android:label="@string/app_name"
+        android:label="@string/intp_app_name"
         android:supportsRtl="true">
 
     </application>

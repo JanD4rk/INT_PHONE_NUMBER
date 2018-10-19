@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatEditText;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -24,7 +22,6 @@ import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
 
-import net.rimoto.intlphoneinput.R;
 
 import java.util.Locale;
 
@@ -81,9 +78,9 @@ public class IntlPhoneInput extends RelativeLayout implements Callbacks {
         /**
          * Country spinner
          */
-        mCountryImageView = findViewById(R.id.intl_phone_edit__country);
+        mCountryImageView = findViewById(R.id.intp_country_iv);
         mCountries = Utils.getCountries(getContext());
-        mPhoneEdit = findViewById(R.id.intl_phone_edit__phone);
+        mPhoneEdit = findViewById(R.id.intlp_number_et);
         mPhoneEdit.addTextChangedListener(mPhoneNumberWatcher);
 
         initDialog(attrs);
@@ -143,14 +140,14 @@ public class IntlPhoneInput extends RelativeLayout implements Callbacks {
 
             countryDialog.setRowDividerSize(
                     ta.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_dialogRowDividerSize,
-                            getContext().getResources().getDimensionPixelSize(R.dimen.dialog_row_default_divider)));
+                            getContext().getResources().getDimensionPixelSize(R.dimen.intp_dialog_row_default_divider)));
 
             resId = ta.getColor(R.styleable.IntlPhoneInput_int_dialogDividerColor, 0);
             if (resId != 0)
                 countryDialog.setDividerColor(resId);
 
             resId = ta.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_dialogDividerSize,
-                    getContext().getResources().getDimensionPixelSize(R.dimen.dialog_default_divider));
+                    getContext().getResources().getDimensionPixelSize(R.dimen.intp_dialog_default_divider));
 
             countryDialog.setDividerSize(resId);
 
@@ -198,10 +195,10 @@ public class IntlPhoneInput extends RelativeLayout implements Callbacks {
         if (a == null)
             return;
 
-        int paddingEnd = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_flagPaddingEnd, getResources().getDimensionPixelSize(R.dimen.flag_default_padding_right));
-        int paddingStart = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_flagPaddingStart, getResources().getDimensionPixelSize(R.dimen.flag_default_padding));
-        int paddingTop = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_flagPaddingTop, getResources().getDimensionPixelSize(R.dimen.flag_default_padding));
-        int paddingBottom = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_flagPaddingBottom, getResources().getDimensionPixelSize(R.dimen.flag_default_padding));
+        int paddingEnd = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_flagPaddingEnd, getResources().getDimensionPixelSize(R.dimen.intp_flag_default_padding_right));
+        int paddingStart = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_flagPaddingStart, getResources().getDimensionPixelSize(R.dimen.intp_flag_default_padding));
+        int paddingTop = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_flagPaddingTop, getResources().getDimensionPixelSize(R.dimen.intp_flag_default_padding));
+        int paddingBottom = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_flagPaddingBottom, getResources().getDimensionPixelSize(R.dimen.intp_flag_default_padding));
 
 
         mCountryImageView.setPadding(paddingStart, paddingTop, paddingEnd, paddingBottom);
@@ -218,7 +215,7 @@ public class IntlPhoneInput extends RelativeLayout implements Callbacks {
         if (a == null)
             return;
 
-        int textSize = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_textSize, getResources().getDimensionPixelSize(R.dimen.text_size_default));
+        int textSize = a.getDimensionPixelSize(R.styleable.IntlPhoneInput_int_textSize, getResources().getDimensionPixelSize(R.dimen.intp_text_size_default));
         mPhoneEdit.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
         int textColor = a.getColor(R.styleable.IntlPhoneInput_int_textColor, mPhoneEdit.getCurrentTextColor());
         mPhoneEdit.setTextColor(textColor);

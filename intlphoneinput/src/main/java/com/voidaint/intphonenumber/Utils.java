@@ -7,7 +7,6 @@ import android.support.v4.content.ContextCompat;
 
 import com.google.gson.Gson;
 
-import net.rimoto.intlphoneinput.R;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -59,7 +58,7 @@ public class Utils {
 
     public static CountryList getCountries(Context context) {
         CountryList countryList = new CountryList();
-        countryList.addAll(Arrays.asList((new Gson().fromJson(getJsonFromRaw(context, R.raw.countries), Country[].class))));
+        countryList.addAll(Arrays.asList((new Gson().fromJson(getJsonFromRaw(context, R.raw.intp_countries), Country[].class))));
 
         return countryList;
     }

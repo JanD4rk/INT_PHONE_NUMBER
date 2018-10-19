@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import net.rimoto.intlphoneinput.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,7 @@ import java.util.List;
  */
 
 public class CountryCodesAdapter extends RecyclerView.Adapter<CountryCodesAdapter.ViewHolder> {
-    ;
+
     private List<Country> countries;
     private List<Country> childList;
     private CountryDialog.OnCountrySelectionListener listener;
@@ -63,7 +62,7 @@ public class CountryCodesAdapter extends RecyclerView.Adapter<CountryCodesAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_country, parent, false);
+        View convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.intp_item_country, parent, false);
         return new ViewHolder(convertView, textColor,dividerColor,dividerSize,textSize);
     }
 
@@ -125,10 +124,10 @@ public class CountryCodesAdapter extends RecyclerView.Adapter<CountryCodesAdapte
 
         ViewHolder(View convertView, @ColorInt int textColor, @ColorInt int dividerColor,int dividerSize,int textSize) {
             super(convertView);
-            mImageView = convertView.findViewById(R.id.intl_phone_edit__country__item_image);
-            mNameView = convertView.findViewById(R.id.intl_phone_edit__country__item_name);
-            mDialCode = convertView.findViewById(R.id.intl_phone_edit__country__item_dialcode);
-            divider = convertView.findViewById(R.id.divider);
+            mImageView = convertView.findViewById(R.id.intp_row_country_iv);
+            mNameView = convertView.findViewById(R.id.intp_row_country_name);
+            mDialCode = convertView.findViewById(R.id.intp_row_country_dialcode);
+            divider = convertView.findViewById(R.id.intp_row_country_divider);
 
             if (textColor != 0) {
                 mNameView.setTextColor(textColor);
