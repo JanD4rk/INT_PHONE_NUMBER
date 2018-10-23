@@ -163,6 +163,7 @@ public class IntlPhoneInput extends RelativeLayout implements Callbacks {
                 countryDialog.setDialogHeight(resId);
 
 
+             textValue = new TypedValue();
             ta.getValue(R.styleable.IntlPhoneInput_int_dialogHintText, textValue);
             if (textValue.type == TypedValue.TYPE_STRING)
                 countryDialog.setHintText(textValue.string);
